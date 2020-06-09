@@ -79,11 +79,10 @@ public class Controller {
 	@PostMapping(path = "/Contract/", consumes = "application/json")
 	public EmploymentContract enterContract(@RequestBody EmploymentContract empContract) throws EmployerException {
 
-		if (cService.validateDate(empContract)) {
+		//if (cService.validateDate(empContract)) {
+
 			System.out.println("EmployerContract has a new record");
 			return cService.addContract(empContract);
-		}
-		return null;
 	}
 
 	
@@ -95,6 +94,11 @@ public class Controller {
 
 			System.out.println("SkillSet has a new record");
 			return sService.addSkill(skill);
+	}
+	
+	@GetMapping(path = "/Skill/{id}")
+	public SkillSet getSkilById(@PathVariable int id) {
+		return cService.viewSkillById(id);
 	}
 
 }

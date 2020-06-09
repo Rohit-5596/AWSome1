@@ -23,81 +23,81 @@ public class EmploymentContract {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_contract")
 	@Column(name="contract_id",length = 5)
-	private int employerId;
+	private int contractId;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="employment_start_date", length=15)
-	private Date emplymentStartDate;
+	private Date employmentStartDate;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="employment_end_date", length=15)
-	private Date emplymentEndDate;
+	private Date employmentEndDate;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="employment_city", length=10)
 	private String employmentCity;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="employment_state", length=15)
 	private String employmentState;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="total_no_of_labourer_needed", length=4)
 	private int totalNoOfLabourerNeeded;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="skillset1", length=2)
 	private int skillset1;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="labourer_needed_skillset1", length=4)
 	private int labourerNeededSkillset1;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="min_daily_wage_skillset1", length=4)
 	private int minDailyWageSkillset1;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="daily_wage_skillset1", length=4)
 	private int dailyWageSkillset1;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="skillset2", length=2)
 	private int skillset2;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="labourer_needed_skillset2", length=4)
 	private int labourerNeededSkillset2;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="min_daily_wage_skillset2", length=4)
 	private int minDailyWageSkillset2;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="daily_wage_skillset2", length=4)
 	private int dailyWageSkillset2;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="skillset3", length=2)
 	private int skillset3;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="labourer_needed_skillset3", length=4)
 	private int labourerNeededSkillset3;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="min_daily_wage_skillset3", length=4)
 	private int minDailyWageSkillset3;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="daily_wage_skillset3", length=4)
 	private int dailyWageSkillset3;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="medical_insurance_cover", length=15)
 	private String medicalInsuranceCover;
 	
-	@NotNull
+	//@NotNull
 	@Column(name="status", length=10)
 	private String status;
 	
@@ -109,28 +109,28 @@ public class EmploymentContract {
     @UpdateTimestamp
 	private Timestamp lastModifiedDate;
 
-	public int getEmployerId() {
-		return employerId;
+	public int getContractId() {
+		return contractId;
 	}
 
-	public void setEmployerId(int employerId) {
-		this.employerId = employerId;
+	public void setEmployerId(int contractId) {
+		this.contractId = contractId;
 	}
 
 	public Date getEmplymentStartDate() {
-		return emplymentStartDate;
+		return employmentStartDate;
 	}
 
 	public void setEmplymentStartDate(Date emplymentStartDate) {
-		this.emplymentStartDate = emplymentStartDate;
+		this.employmentStartDate = emplymentStartDate;
 	}
 
-	public Date getEmplymentEndDate() {
-		return emplymentEndDate;
+	public Date getEmploymentEndDate() {
+		return employmentEndDate;
 	}
 
-	public void setEmplymentEndDate(Date emplymentEndDate) {
-		this.emplymentEndDate = emplymentEndDate;
+	public void setEmplymentEndDate(Date employmentEndDate) {
+		this.employmentEndDate = employmentEndDate;
 	}
 
 	public String getEmploymentCity() {
@@ -285,7 +285,7 @@ public class EmploymentContract {
 		this.lastModifiedDate = lastModifiedDate;
 	}
 
-	public EmploymentContract(int employerId, @NotNull Date emplymentStartDate, @NotNull Date emplymentEndDate,
+	public EmploymentContract(int contractId, @NotNull Date employmentStartDate, @NotNull Date employmentEndDate,
 			@NotNull String employmentCity, @NotNull String employmentState, @NotNull int totalNoOfLabourerNeeded,
 			@NotNull int skillset1, @NotNull int labourerNeededSkillset1, @NotNull int minDailyWageSkillset1,
 			@NotNull int dailyWageSkillset1, @NotNull int skillset2, @NotNull int labourerNeededSkillset2,
@@ -294,9 +294,9 @@ public class EmploymentContract {
 			@NotNull String medicalInsuranceCover, @NotNull String status, Timestamp creationDate,
 			Timestamp lastModifiedDate) {
 		super();
-		this.employerId = employerId;
-		this.emplymentStartDate = emplymentStartDate;
-		this.emplymentEndDate = emplymentEndDate;
+		this.contractId = contractId;
+		this.employmentStartDate = employmentStartDate;
+		this.employmentEndDate = employmentEndDate;
 		this.employmentCity = employmentCity;
 		this.employmentState = employmentState;
 		this.totalNoOfLabourerNeeded = totalNoOfLabourerNeeded;
@@ -324,8 +324,8 @@ public class EmploymentContract {
 
 	@Override
 	public String toString() {
-		return "EmploymentContract [employerId=" + employerId + ", emplymentStartDate=" + emplymentStartDate
-				+ ", emplymentEndDate=" + emplymentEndDate + ", employmentCity=" + employmentCity + ", employmentState="
+		return "EmploymentContract [contractId=" + contractId + ", emplymentStartDate=" + employmentStartDate
+				+ ", emplymentEndDate=" + employmentEndDate + ", employmentCity=" + employmentCity + ", employmentState="
 				+ employmentState + ", totalNoOfLabourerNeeded=" + totalNoOfLabourerNeeded + ", skillset1=" + skillset1
 				+ ", labourerNeededSkillset1=" + labourerNeededSkillset1 + ", minDailyWageSkillset1="
 				+ minDailyWageSkillset1 + ", dailyWageSkillset1=" + dailyWageSkillset1 + ", skillset2=" + skillset2
