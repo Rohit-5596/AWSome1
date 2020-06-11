@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ta.backend.entity.Employer;
-import com.ta.backend.entity.EmploymentContract;
+import com.ta.backend.entity.LabourerContract;
 import com.ta.backend.entity.SkillSet;
 import com.ta.backend.exception.EmployerException;
 import com.ta.backend.service.ContractService;
@@ -77,13 +77,38 @@ public class Controller {
 	
 	/*======================================================================================*/
 	@PostMapping(path = "/Contract/", consumes = "application/json")
-	public EmploymentContract enterContract(@RequestBody EmploymentContract empContract) throws EmployerException {
+	public LabourerContract enterContract(@RequestBody LabourerContract empContract) throws EmployerException {
 
-		//if (cService.validateDate(empContract)) {
-
+		if (cService.validateWage(empContract) && cService.validateDate(empContract)) {
 			System.out.println("EmployerContract has a new record");
 			return cService.addContract(empContract);
+		}
+		System.out.println("EmployerContract has no new record");
+		return null;
 	}
+	
+
+	@GetMapping(path = "/Contract/")
+	public List<LabourerContract> getAllPendingContracts() throws EmployerException {
+
+		System.out.println("Pending contracts");
+		return cService.fetchAllPending();
+
+	}
+	
+	@GetMapping(path="/Contract/{id}")
+	public LabourerContract viewContractById(@PathVariable int id) {
+		LabourerContract contract = new LabourerContract();
+		contract= cService.viewById(id);
+		if(contract==null) {
+			System.out.println(id+" not found");
+			return null;
+		}
+		System.out.println(id+ " found");
+		return contract;
+	}
+	
+	
 
 	
 	/*======================================================================================*/
